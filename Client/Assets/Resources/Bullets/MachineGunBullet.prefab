@@ -161,7 +161,7 @@ MonoBehaviour:
   _patrons: 40
   _recharge: 3
   _scatter: 0.3
-  _lifeTime: 0.3
+  _lifeTime: 3
   _bulletSpeed: 35
   _bulletSpeedRotation: 0
   _resistanceState: 00000000

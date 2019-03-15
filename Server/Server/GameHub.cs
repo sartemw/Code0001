@@ -42,7 +42,12 @@ namespace Server
 
 			_broadcaster.RegisterModelBullet(obj);
 		}
-
+		
+		//Регистрируем попадание пули
+		public void RegisteredHitBullet(HitModel hitModel)
+		{			
+			_broadcaster.registeredHitBullet(hitModel);
+		}
 		/*
 		public override Task OnDisconnected(bool stopCalled)
 		{

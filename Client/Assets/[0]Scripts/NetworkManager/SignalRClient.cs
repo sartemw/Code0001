@@ -20,7 +20,7 @@ public class SignalRClient : MonoBehaviour
 	//массив на обновление позиций
 	[HideInInspector] public List<SyncObjectModel> _syncObjectPool = new List<SyncObjectModel>();
 	//массив на удаление игроков
-	List<SyncObjectModel> _disconnectedModels = new List<SyncObjectModel>();
+	[HideInInspector] public List<SyncObjectModel> _disconnectedModels = new List<SyncObjectModel>();
 	//сообщение
 	
 
@@ -37,6 +37,7 @@ public class SignalRClient : MonoBehaviour
 	private string result;	
 	private Vector3 _playerSpawnPosition;
 	private PlayerController _playerController;
+	private PlayerStats _playerStats;
 
 	[HideInInspector] public GameHelper GameHelper;
 	[HideInInspector] public HubConnection HubConnection = null;
@@ -64,6 +65,7 @@ public class SignalRClient : MonoBehaviour
 		
 		Debug.Log("Start()");
 		GameHelper = transform.parent.Find("GameHelper").GetComponent<GameHelper>();
+		
 
 		yield return new WaitForSeconds(1);
 		Debug.Log("Start() 1 second");
@@ -433,7 +435,13 @@ public class SignalRClient : MonoBehaviour
 					signalRIdentety.IsAuthority = true;
 					GameHelper.CurrentPlayerGameObject = gameObj;
 
+					gameObj.GetComponent<PlayerStats>().IsEnemy = false;
+
 					_playerController = GameHelper.CurrentPlayerGameObject.GetComponent<PlayerController>();
+				}
+				else
+				{
+					gameObj.GetComponent<PlayerStats>().IsEnemy = true;
 				}
 
 				GameHelper.OtherPlayers.Add(signalRIdentety);
@@ -443,7 +451,7 @@ public class SignalRClient : MonoBehaviour
 			_instantiatePlayerPool.Clear();
 		}
 	}
-
+	
 	//private void BulletInUpdate()
 	//{
 	//	if (_instantiateBulletPool.Count > 0)

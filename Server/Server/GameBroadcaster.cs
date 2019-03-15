@@ -113,26 +113,18 @@ namespace Server
 		public void RegisterModelBullet(SyncObjectModel bulletmodel)
 		{
 			////даем уникальный ID
-			//bulletmodel.Id = _registerBullets.Count();
+			bulletmodel.Id = _registerBullets.Count();
 
 			//_registerBullets.Enqueue(bulletmodel);
 
 			_hubContext.Clients.All.instantiateBullet(bulletmodel);
 		}
 
-		//добавление игрока в игру
-		public void AddBulletInGame(PlayerModel bullet)
+
+		//рассылка попадания пули
+		public void registeredHitBullet(HitModel hitModel)
 		{
-			//Хранит сколько всего игроков
-			int playerCount = _bullets.Count();
-
-			//Добавляем номер игроку
-			bullet.PlayerIndex = playerCount;
-
-			//тут надо сделать проверку был или не был этот игрок
-
-			//добавляем игкрока в потокозащищенный лист
-			_bullets.Enqueue(bullet);
+			_hubContext.Clients.All.registeredHitBullet(hitModel);
 		}
 
 		//Удаляем модель и игрока из всех списков

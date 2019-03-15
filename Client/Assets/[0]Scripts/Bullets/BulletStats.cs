@@ -7,21 +7,21 @@ using UnityEngine;
 
 public class BulletStats : MonoBehaviour {
 
-	public int _damage;
+	[SerializeField] private int _damage;
 	public int Damage
 	{
 		get { return _damage; }
 		set { _damage = value; }
 	}
 
-	public float _attackSpeed;
+	[SerializeField] private float _attackSpeed;
 	public float AttackSpeed
 	{
 		get { return _attackSpeed; }
 		set { _attackSpeed = value; }
 	}
 
-	public int _patrons;
+	[SerializeField] private int _patrons;
 	public int Patrons
 	{
 
@@ -29,7 +29,7 @@ public class BulletStats : MonoBehaviour {
 		set { _patrons = value; }
 	}
 
-	public float _recharge;
+	[SerializeField] private float _recharge;
 	public float Recharge
 	{
 
@@ -37,7 +37,7 @@ public class BulletStats : MonoBehaviour {
 		set { _recharge = value; }
 	}
 
-	public float _scatter;
+	[SerializeField] private float _scatter;
 	public float Scatter
 	{
 
@@ -45,7 +45,7 @@ public class BulletStats : MonoBehaviour {
 		set { _scatter = value; }
 	}
 
-	public float _lifeTime;
+	[SerializeField] private float _lifeTime;
 	public float LifeTime
 	{
 
@@ -53,7 +53,7 @@ public class BulletStats : MonoBehaviour {
 		set { _lifeTime = value; }
 	}
 
-	public int _bulletSpeed;
+	[SerializeField] private int _bulletSpeed;
 	public int BulletSpeed
 	{
 
@@ -61,7 +61,7 @@ public class BulletStats : MonoBehaviour {
 		set { _bulletSpeed = value; }
 	}
 
-	public int _bulletSpeedRotation;
+	[SerializeField] private int _bulletSpeedRotation;
 	public int BulletSpeedRotation
 	{
 
@@ -72,14 +72,14 @@ public class BulletStats : MonoBehaviour {
 	public enum Penetration { kinematic, thermal, energy };
 	public Penetration[] _resistanceState;
 
-	public int[] _penetrationValue;
+	[SerializeField] private int[] _penetrationValue;
 	public int[] PenetrationValue
 	{
 		get { return _penetrationValue; }
 		set { _penetrationValue = value; }
 	}
 
-	public int _critical;
+	[SerializeField] private int _critical;
 	public int Critical
 	{
 
@@ -87,7 +87,7 @@ public class BulletStats : MonoBehaviour {
 		set { _critical = value; }
 	}
 
-	public bool _perforation;
+	[SerializeField] private bool _perforation;
 	public bool Perforation
 	{
 		get { return _perforation; }

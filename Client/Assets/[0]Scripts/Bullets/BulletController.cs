@@ -36,16 +36,10 @@ public class BulletController : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		
-		if (collision.GetComponent<SignalRIdentity>().NetworkID != GetComponent<SignalRIdentity>().NetworkID
+		if (GetComponent<SignalRIdentity>().IsAuthority
 			&& collision.GetComponent<PlayerStats>().IsEnemy)
 		{
-			collision.GetComponent<PlayerStats>().Health -= damage;
-
-			if (collision.GetComponent<PlayerStats>().Health <= 0)
-				Destroy(collision.gameObject);
-
-			if (!_bulletStats.Perforation)
-				Destroy(gameObject);
+			SignalRShooting.instance.RegisteredHitBullet(GetComponent<SignalRIdentity>().NetworkID, collision.GetComponent<SignalRIdentity>().NetworkID);			
 		}
 	}
 
