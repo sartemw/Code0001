@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "defaultProvider": "filesystem",
+  "libraries": [
+    {
+      "library": "bin/",
+      "destination": "lib/bin/",
+      "files": [
+        "SignalRModelLibrary.dll"
+      ]
+    }
+  ]
+}
