@@ -3,7 +3,7 @@
 public class SignalRIdentity : MonoBehaviour
 {
 
-	public bool _isAuthority;
+	private bool _isAuthority;
 	public bool IsAuthority
 	{
 		get { return _isAuthority; }

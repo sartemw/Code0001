@@ -148,7 +148,7 @@ public class SignalRShooting : MonoBehaviour {
 								if (!bullet.GetComponent<BulletStats>().Perforation)
 								{
 									_BulletsInGame.Equals(bullet);
-									Destroy(gameObject);
+									Destroy(bullet);
 								}
 							}
 						}

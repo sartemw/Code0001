@@ -17,13 +17,14 @@ namespace Server
 			_broadcaster = broadcaster;
 		}
 
+		#region Player
 		//обновление модели
 		public void UpdateModel(SyncObjectModel clientModel)
 		{
 			//определяет кто главный над объектом
 			clientModel.Authority = Context.ConnectionId;
 
-			_broadcaster.UpdateModel(clientModel);
+			_broadcaster.updateModel(clientModel);
 		}
 
 		//регистрация игрока
@@ -31,10 +32,17 @@ namespace Server
 		{
 			obj.Authority = Context.ConnectionId;
 
-			_broadcaster.AddPlayerInGame(obj);
-		}				
-				
+			_broadcaster.registerPlayer(obj);
+		}
 
+		//дисконект игрока
+		public void DisconnectPlayer(string ID)
+		{
+			_broadcaster.DisconnectPlayer(ID);
+		}
+		#endregion
+
+		#region Bullet
 		//Регистрируем объект (капсулы)
 		public void RegisterObjectBullet (SyncObjectModel obj)
 		{
@@ -48,6 +56,8 @@ namespace Server
 		{			
 			_broadcaster.registeredHitBullet(hitModel);
 		}
+		#endregion
+
 		/*
 		public override Task OnDisconnected(bool stopCalled)
 		{
@@ -62,17 +72,9 @@ namespace Server
 				// If SignalR is behind a load balancer with scaleout configured, 
 				// the client may still be connected to another SignalR server.
 			}
-
 			return base.OnDisconnected(stopCalled);
 		}
 		*/
-
-		//дисконект игрока
-		public void DisconnectPlayer(string ID)
-		{
-			_broadcaster.DisconnectPlayer(ID);
-		}
-
 
 		//рассылка сообщения
 		public void Send(ChatModel model)
@@ -80,6 +82,5 @@ namespace Server
 			// Call the broadcastMessage method to update clients.
 			Clients.All.broadcastMessage(model);
 		}
-
 	}
 }

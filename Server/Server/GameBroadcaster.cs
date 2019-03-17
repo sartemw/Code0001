@@ -10,6 +10,7 @@ namespace Server
 {
 	public class GameBroadcaster
 	{
+		#region Переменные
 		public static GameBroadcaster Instance
 		{
 			get
@@ -45,6 +46,7 @@ namespace Server
 		//было обновление или нет
 		private bool _modelUpdated;
 
+		#endregion
 
 		public GameBroadcaster()
 		{
@@ -81,14 +83,14 @@ namespace Server
 		}
 
 		//обновление модели
-		public void UpdateModel(SyncObjectModel clientmodel)
+		public void updateModel(SyncObjectModel clientmodel)
 		{
 			_oneFrameSyncModels.Enqueue(clientmodel);
 			_modelUpdated = true;
 		}		
 
 		//добавление игрока в игру
-		public void AddPlayerInGame(SyncObjectModel clientmodel)
+		public void registerPlayer(SyncObjectModel clientmodel)
 		{
 			//даем уникальный ID
 			clientmodel.Id = _registerModels.Count();
