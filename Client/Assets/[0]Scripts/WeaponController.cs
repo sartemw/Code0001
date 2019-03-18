@@ -100,7 +100,7 @@ void RotateWeapon()
 		SyncObjectModel syncObjectModel = new SyncObjectModel()
 		{
 			PrefabName = prefabName,
-
+			
 			X = pos.x,
 			Y = pos.y,
 			Z = pos.z,

@@ -117,7 +117,7 @@ namespace Server
 			////даем уникальный ID
 			bulletmodel.Id = _registerBullets.Count();
 
-			//_registerBullets.Enqueue(bulletmodel);
+			_registerBullets.Enqueue(bulletmodel);
 
 			_hubContext.Clients.All.instantiateBullet(bulletmodel);
 		}
