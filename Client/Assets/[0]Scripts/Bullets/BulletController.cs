@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using SpaceAdSLibrary;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour {
@@ -39,12 +38,23 @@ public class BulletController : MonoBehaviour {
 		if (GetComponent<SignalRIdentity>().IsAuthority
 			&& collision.GetComponent<PlayerStats>().IsEnemy)
 		{
-			SignalRShooting.instance.RegisteredHitBullet(GetComponent<SignalRIdentity>().NetworkID, collision.GetComponent<SignalRIdentity>().NetworkID);			
-		}
+			HitModel hitModel = new HitModel()
+			{
+				bulletID = GetComponent<SignalRIdentity>().NetworkID,
+				targetID = collision.GetComponent<SignalRIdentity>().NetworkID
+			};
+
+			SignalRShooting.instance.RegisteredHitBullet(hitModel);			
+		};
 	}
 
 	void FixedUpdate()
 	{
 		_rigidbody2D.AddForce(transform.right * speed);
+	}
+
+	private void OnDisable()
+	{
+		SignalRShooting.instance.BulletsInGame.Remove(gameObject);
 	}
 }

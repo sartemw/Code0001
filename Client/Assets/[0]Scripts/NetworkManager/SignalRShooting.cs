@@ -15,7 +15,7 @@ public class SignalRShooting : MonoBehaviour {
 	//лист пуль на попадание
 	private List<HitModel> _hitBulletPool = new List<HitModel>();
 	//лист существующих пуль
-	private List<GameObject> _BulletsInGame = new List<GameObject>();
+	public List<GameObject> BulletsInGame = new List<GameObject>();
 
 	private SignalRClient _signalRClient;
 	private GameHelper _gameHelper;
@@ -98,7 +98,7 @@ public class SignalRShooting : MonoBehaviour {
 
 				SignalRIdentity signalRIdentety = gameObj.GetComponent<SignalRIdentity>();
 
-				_BulletsInGame.Add(gameObj);
+				BulletsInGame.Add(gameObj);
 
 				signalRIdentety.NetworkID = syncObjectModel.Id;
 				
@@ -113,11 +113,8 @@ public class SignalRShooting : MonoBehaviour {
 	}
 
 	#region Попадание пули
-	public void RegisteredHitBullet(int bulletID, int targetID)
+	public void RegisteredHitBullet(HitModel hitModel)
 	{
-		HitModel hitModel = new HitModel();
-		hitModel.bulletID = bulletID;
-		hitModel.targetID = targetID;
 		_hubProxy.Invoke("RegisteredHitBullet", hitModel);
 	}
 	//удаляем пулю, регистрируем попадание у остальных игроков
@@ -127,7 +124,7 @@ public class SignalRShooting : MonoBehaviour {
 		{
 			foreach (var hitModel in _hitBulletPool)
 			{
-				foreach (var bullet in _BulletsInGame)
+				foreach (var bullet in BulletsInGame)
 				{
 					if (bullet.GetComponent<SignalRIdentity>().NetworkID == hitModel.bulletID)
 					{
@@ -147,7 +144,7 @@ public class SignalRShooting : MonoBehaviour {
 
 								if (!bullet.GetComponent<BulletStats>().Perforation)
 								{
-									_BulletsInGame.Equals(bullet);
+									BulletsInGame.Equals(bullet);
 									Destroy(bullet);
 								}
 							}
