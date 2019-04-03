@@ -8,6 +8,8 @@ namespace SpaceAdSLibrary
 	public class HitModel
 	{
 		public int bulletID;
+		public int playerID;
 		public int targetID;
+		public int damage;
 	}
 }

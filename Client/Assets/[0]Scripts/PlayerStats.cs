@@ -79,4 +79,19 @@ public class PlayerStats : MonoBehaviour {
 		get { return _dodge; }
 		set { _dodge = value; }
 	}
+
+	[SerializeField] private GameObject[] _bullets;
+	public GameObject[] Bullets
+	{
+		get { return _bullets; }
+		set { _bullets = value; }
+	}
+
+	[SerializeField] private int[] _clips;
+	public int[] Clips
+	{
+
+		get { return _clips; }
+		set { _clips = value; }
+	}
 }

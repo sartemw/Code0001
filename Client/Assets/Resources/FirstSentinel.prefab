@@ -274,6 +274,9 @@ MonoBehaviour:
   _resistanceState: 000000000100000002000000
   _resistanceValue: 000000000000000000000000
   _dodge: 6
+  _bullets:
+  - {fileID: 1740561126202760, guid: b9b31c3af692a904dbb43d2309405604, type: 2}
+  _clips: 04000000
 --- !u!114 &114209344316463370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,7 +288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465c196506c45b342bc084376ce1e795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAuthority: 0
 --- !u!114 &114258388304142618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,8 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dceafa0a374d0549b248cf966eb90a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullets:
-  - {fileID: 1740561126202760, guid: b9b31c3af692a904dbb43d2309405604, type: 2}
   shootingRate: 0.25
   shotCooldown: 0
 --- !u!114 &114509214908758400

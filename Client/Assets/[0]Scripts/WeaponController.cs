@@ -12,7 +12,7 @@ public class WeaponController : MonoBehaviour {
 	//префаб снаряда для стрельбы
 	GameObject shotPrefab;
 
-	public GameObject[] Bullets;
+	
 
 	//время перезарядки в секунду
 	[HideInInspector]
@@ -24,19 +24,26 @@ public class WeaponController : MonoBehaviour {
 	Vector3 mousePosition;
 	Vector3 difference;
 
+	private PlayerStats playerStats;
 	private SignalRClient signalRClient;
 	private Vector3 bulletPosition;
 	private Quaternion bulletRotation;
 	private string bulletName;
 	private IHubProxy hubProxy;
 
+	private int clip;
+	private List<GameObject> shotedBullets = new List<GameObject>();
+
 	void Start () {
 		signalRClient = SignalRClient.instance;
 		hubProxy = signalRClient.HubProxy;
 		_signalRIdentity = GetComponentInParent<SignalRIdentity>();
-		shootingRate = Bullets[0].GetComponent<BulletStats>().AttackSpeed;
+		playerStats = GetComponentInParent<PlayerStats>();
+
+		clip = playerStats.Clips[0];
+		shootingRate = playerStats.Bullets[0].GetComponent<BulletStats>().AttackSpeed;
 		shotCooldown = 0f;
-		shotPrefab = Bullets[0];
+		shotPrefab = playerStats.Bullets[0];
 	}
 		
 	void Update ()
