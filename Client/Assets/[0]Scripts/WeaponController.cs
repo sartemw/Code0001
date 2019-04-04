@@ -104,20 +104,19 @@ void RotateWeapon()
 	public void InstantiateBullet(string prefabName, Vector3 pos, Quaternion rot)
 	{
 		//это отправится на сервер и вышлется всем игрокам
-		SyncObjectModel syncObjectModel = new SyncObjectModel()
+		BulletModel bulletModel = new BulletModel()
 		{
+			PlayerId = GetComponent<SignalRIdentity>().NetworkID,
+
 			PrefabName = prefabName,
 			
 			X = pos.x,
 			Y = pos.y,
-			Z = pos.z,
 
-			aX = rot.x,
-			aY = rot.y,
 			aZ = rot.z,
 			aQ = rot.w
 		};
 
-		hubProxy.Invoke("RegisterObjectBullet", syncObjectModel);
+		hubProxy.Invoke("RegisterObjectBullet", bulletModel);
 	}
 }

@@ -44,7 +44,7 @@ namespace Server
 
 		#region Bullet
 		//Регистрируем объект (капсулы)
-		public void RegisterObjectBullet (SyncObjectModel obj)
+		public void RegisterObjectBullet (BulletModel obj)
 		{
 			obj.Authority = Context.ConnectionId;
 

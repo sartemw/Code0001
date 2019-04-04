@@ -11,7 +11,7 @@ public class SignalRShooting : MonoBehaviour {
 	public static SignalRShooting instance = null; // Экземпляр объекта
 
 	//лист пуль на регистрацию
-	private List<SyncObjectModel> _instantiateBulletPool = new List<SyncObjectModel>();
+	private List<BulletModel> _instantiateBulletPool = new List<BulletModel>();
 	//лист пуль на попадание
 	private List<HitModel> _hitBulletPool = new List<HitModel>();
 	//лист существующих пуль
@@ -55,10 +55,10 @@ public class SignalRShooting : MonoBehaviour {
 					foreach (var item in subscription_DataInstantiateBullet)
 					{
 						//десериализуем объект в item
-						SyncObjectModel syncObjectModel = new SyncObjectModel();
-						syncObjectModel = JsonConvert.DeserializeObject<SyncObjectModel>(item.ToString());
+						BulletModel bulletModel = new BulletModel();
+						bulletModel = JsonConvert.DeserializeObject<BulletModel>(item.ToString());
 						//добавляем эти объекты в Pool и когда смогу, то Instantiate их в LateUpdate
-						_instantiateBulletPool.Add(syncObjectModel);
+						_instantiateBulletPool.Add(bulletModel);
 					}
 				};
 
@@ -87,22 +87,23 @@ public class SignalRShooting : MonoBehaviour {
 	{
 		if (_instantiateBulletPool.Count > 0)
 		{
-			foreach (var syncObjectModel in _instantiateBulletPool)
+			foreach (var bulletModel in _instantiateBulletPool)
 			{
-				GameObject gameObj = Instantiate(Resources.Load<GameObject>("Bullets/" + syncObjectModel.PrefabName),
-					new Vector3(syncObjectModel.X, syncObjectModel.Y, syncObjectModel.Z),
-					new Quaternion(syncObjectModel.aX,
-									syncObjectModel.aY,
-									syncObjectModel.aZ,
-									syncObjectModel.aQ)) as GameObject;
+				GameObject gameObj = Instantiate(Resources.Load<GameObject>("Bullets/" + bulletModel.PrefabName),
+					new Vector3(bulletModel.X, bulletModel.Y, 0),
+					new Quaternion(0,
+									0,
+									bulletModel.aZ,
+									bulletModel.aQ)) as GameObject;
 
 				SignalRIdentity signalRIdentety = gameObj.GetComponent<SignalRIdentity>();
 
 				BulletsInGame.Add(gameObj);
 
-				signalRIdentety.NetworkID = syncObjectModel.Id;
+				signalRIdentety.NetworkID = bulletModel.BulletId;
+				signalRIdentety.ParentID = bulletModel.PlayerId;
 				
-				if (_signalRClient.HubConnection.ConnectionId == syncObjectModel.Authority)
+				if (_signalRClient.HubConnection.ConnectionId == bulletModel.Authority)
 				{
 					signalRIdentety.IsAuthority = true;
 				}

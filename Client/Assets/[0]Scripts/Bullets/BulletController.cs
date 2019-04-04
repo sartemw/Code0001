@@ -41,7 +41,10 @@ public class BulletController : MonoBehaviour {
 			HitModel hitModel = new HitModel()
 			{
 				bulletID = GetComponent<SignalRIdentity>().NetworkID,
-				targetID = collision.GetComponent<SignalRIdentity>().NetworkID
+				targetID = collision.GetComponent<SignalRIdentity>().NetworkID,
+				playerID = GetComponent<SignalRIdentity>().ParentID,
+				damage = GetComponent<BulletStats>().Damage
+
 			};
 
 			SignalRShooting.instance.RegisteredHitBullet(hitModel);			

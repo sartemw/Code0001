@@ -38,10 +38,7 @@ namespace Server
 		ConcurrentQueue<SyncObjectModel> _registerModels = new ConcurrentQueue<SyncObjectModel>();	
 		
 		//массив который нужно разослать всем вновь зашедшим, чтобы прогрузились выстреленные пули
-		ConcurrentQueue<SyncObjectModel> _registerBullets = new ConcurrentQueue<SyncObjectModel>();
-
-		//массив зарегестрированных игроков
-		ConcurrentQueue<PlayerModel> _bullets = new ConcurrentQueue<PlayerModel>();
+		ConcurrentQueue<BulletModel> _registerBullets = new ConcurrentQueue<BulletModel>();
 
 		//было обновление или нет
 		private bool _modelUpdated;
@@ -63,6 +60,7 @@ namespace Server
 				BroadcastInterval);
 		}
 
+		#region Player
 		//рассылка обновления
 		public void BroadcastShape(object state)
 		{
@@ -111,32 +109,14 @@ namespace Server
 
 		}
 
-		//модели зарегестрированные на игровой карте
-		public void RegisterModelBullet(SyncObjectModel bulletmodel)
-		{
-			////даем уникальный ID
-			bulletmodel.Id = _registerBullets.Count();
-
-			_registerBullets.Enqueue(bulletmodel);
-
-			_hubContext.Clients.All.instantiateBullet(bulletmodel);
-		}
-
-
-		//рассылка попадания пули
-		public void registeredHitBullet(HitModel hitModel)
-		{
-			_hubContext.Clients.All.registeredHitBullet(hitModel);
-		}
-
 		//Удаляем модель и игрока из всех списков
 		public void DisconnectPlayer(string id)
 		{
-			SyncObjectModel x;			
+			SyncObjectModel x;
 
 			//удаляем игрока из коллекции отвечающую за появление вновь зашедшего.			 
 			foreach (var item in _registerModels)
-			{				
+			{
 				if (item.Authority == id)
 				{
 					_registerModels.TryDequeue(out x);
@@ -149,7 +129,7 @@ namespace Server
 					_registerModels.Enqueue(item);
 				}
 			}
-			
+
 			//удаляем игрока из коллекции отвечающую за обновление состояний моделей.
 			foreach (var item in _oneFrameSyncModels)
 			{
@@ -165,6 +145,28 @@ namespace Server
 				}
 			}
 		}
+		#endregion
+
+		#region Bullet
+		//модели зарегестрированные на игровой карте
+		public void RegisterModelBullet(BulletModel bulletmodel)
+		{
+			////даем уникальный ID
+			bulletmodel.BulletId = _registerBullets.Count();
+
+			_registerBullets.Enqueue(bulletmodel);
+
+			_hubContext.Clients.All.instantiateBullet(bulletmodel);
+		}
+
+
+		//рассылка попадания пули
+		public void registeredHitBullet(HitModel hitModel)
+		{
+			_hubContext.Clients.All.registeredHitBullet(hitModel);
+		}
+
+		#endregion
 
 	}
 }

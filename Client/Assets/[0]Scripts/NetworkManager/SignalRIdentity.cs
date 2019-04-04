@@ -24,12 +24,10 @@ public class SignalRIdentity : MonoBehaviour
 		set { _playerName = value; }
 	}
 
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private int _parentID;
+	public int ParentID
+	{
+		get { return _parentID; }
+		set { _parentID = value; }
 	}
 }
