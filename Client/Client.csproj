@@ -265,6 +265,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\[!]TEST\moveCube.cs" />
     <Compile Include="Assets\[0]Scripts\[0]MainMenuScripts\RegisteredPlayer.cs" />
     <Compile Include="Assets\[0]Scripts\Animations\FirstSentinelAnimationsController.cs" />
     <Compile Include="Assets\[0]Scripts\BackGround\PlanetController.cs" />
@@ -281,6 +282,8 @@
     <Compile Include="Assets\[0]Scripts\NetworkManager\SignalRClient.cs" />
     <Compile Include="Assets\[0]Scripts\NetworkManager\SignalRIdentity.cs" />
     <Compile Include="Assets\[0]Scripts\NetworkManager\SignalRShooting.cs" />
+    <Compile Include="Assets\[0]Scripts\ObjectPool\MGBulletSpawner.cs" />
+    <Compile Include="Assets\[0]Scripts\ObjectPool\ObjectPooler.cs" />
     <Compile Include="Assets\[0]Scripts\PlayerController.cs" />
     <Compile Include="Assets\[0]Scripts\PlayerStats.cs" />
     <Compile Include="Assets\[0]Scripts\scripts\ApplicationController.cs" />
