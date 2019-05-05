@@ -391,5 +391,4 @@ C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\Server\obj\Debug\Server.csproj
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\Server\obj\Debug\Server.csproj.CopyComplete
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\Server\obj\Debug\Server.dll
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\Server\obj\Debug\Server.pdb
-C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\Server\bin\Server.dll.CodeAnalysisLog.xml
-C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\Server\bin\Server.dll.lastcodeanalysissucceeded
+C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\Server\obj\Debug\Server.csprojAssemblyReference.cache

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{0AF61384-314C-4340-9E7A-8EB86B6A7B0A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9101660F-9D61-4BC7-898B-4BE086DA32B2} = {9101660F-9D61-4BC7-898B-4BE086DA32B2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAdSLibrary", "SpaceAdSLibrary\SpaceAdSLibrary.csproj", "{9101660F-9D61-4BC7-898B-4BE086DA32B2}"
 EndProject
