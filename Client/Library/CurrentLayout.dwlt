@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 915, y: 392}
   m_MaxSize: {x: 22010, y: 14042}
   vertical: 0
-  controlID: 11
+  controlID: 50
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_MinSize: {x: 638, y: 392}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 1
-  controlID: 12
+  controlID: 51
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_MinSize: {x: 638, y: 271}
   m_MaxSize: {x: 18008, y: 10021}
   vertical: 0
-  controlID: 13
+  controlID: 52
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -395,9 +395,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1ef4ffff
-    m_LastClickedID: -3042
-    m_ExpandedIDs: f0ddffff1ef4ffff22f4ffff84f8ffff00000000
+    m_SelectedIDs: 80010000
+    m_LastClickedID: 0
+    m_ExpandedIDs: de9fffffc2a0ffffeea1ffff6af2ffff6cf2ffffbcf3ffffb0f6ffff9cfbffff00000000f8290000183600004a360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -448,14 +448,14 @@ MonoBehaviour:
     height: 657
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 1751.4851954137869
+  lastFramingTime: 561.5387301999999
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.1221733, y: -5.3311653, z: 1.9601707}
+    m_Target: {x: 1.9508275, y: -4.1346855, z: -0.13229117}
     speed: 2
-    m_Value: {x: 5.1221733, y: -5.3311653, z: 1.9601707}
+    m_Value: {x: 1.9508275, y: -4.1346855, z: -0.13229117}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -483,9 +483,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 85.7216
+    m_Target: 35.26246
     speed: 2
-    m_Value: 85.7216
+    m_Value: 35.26246
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -606,19 +606,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/[8]Scenes
+    - Assets/Resources/Bullets
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/[8]Scenes
+  - Assets/Resources/Bullets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\sarte\Desktop\qwe\_trash\Code0001\Client
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 522a0000
-    m_LastClickedID: 10834
-    m_ExpandedIDs: 00000000b4290000e62900003c2a00005c2a0000662a0000d82a0000da2a0000dc2a0000de2a0000e02a0000e22a0000e42a0000e62a0000e82a0000ea2a0000ec2a000000ca9a3bffffff7f
+    m_SelectedIDs: 1c280000
+    m_LastClickedID: 10268
+    m_ExpandedIDs: 00000000de27000012280000742800009e280000a8280000622900006429000066290000682900006a2900006c2900006e290000702900007229000074290000762900007829000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -646,7 +646,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b4290000e62900003c2a00005c2a0000662a0000d82a0000da2a0000dc2a0000de2a0000e02a0000e22a0000e42a0000e62a0000e82a0000ea2a0000ec2a0000
+    m_ExpandedIDs: 00000000de27000012280000742800009e280000a8280000622900006429000066290000682900006a2900006c2900006e2900007029000072290000742900007629000078290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

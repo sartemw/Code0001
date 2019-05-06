@@ -245,9 +245,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets/Plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SignalR.Client.20">
-      <HintPath>Assets/Plugins/SignalR.Client.20.dll</HintPath>
-    </Reference>
     <Reference Include="SpaceAdSLibrary">
       <HintPath>Assets/Plugins/SpaceAdSLibrary.dll</HintPath>
     </Reference>
@@ -282,10 +279,13 @@
     <Compile Include="Assets\[0]Scripts\NetworkManager\SignalRClient.cs" />
     <Compile Include="Assets\[0]Scripts\NetworkManager\SignalRIdentity.cs" />
     <Compile Include="Assets\[0]Scripts\NetworkManager\SignalRShooting.cs" />
-    <Compile Include="Assets\[0]Scripts\ObjectPool\MGBulletSpawner.cs" />
-    <Compile Include="Assets\[0]Scripts\ObjectPool\ObjectPooler.cs" />
     <Compile Include="Assets\[0]Scripts\PlayerController.cs" />
     <Compile Include="Assets\[0]Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\[0]Scripts\Poller\Cube.cs" />
+    <Compile Include="Assets\[0]Scripts\Poller\CubeSpawner.cs" />
+    <Compile Include="Assets\[0]Scripts\Poller\IPooledObject.cs" />
+    <Compile Include="Assets\[0]Scripts\Poller\ObjectPooler.cs" />
+    <Compile Include="Assets\[0]Scripts\Poller\Pool.cs" />
     <Compile Include="Assets\[0]Scripts\scripts\ApplicationController.cs" />
     <Compile Include="Assets\[0]Scripts\scripts\MainMenu.cs" />
     <Compile Include="Assets\[0]Scripts\scripts\unbeGames\Delegates.cs" />

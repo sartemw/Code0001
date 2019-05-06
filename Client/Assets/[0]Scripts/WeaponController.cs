@@ -106,7 +106,7 @@ void RotateWeapon()
 		//это отправится на сервер и вышлется всем игрокам
 		BulletModel bulletModel = new BulletModel()
 		{
-			PlayerId = GetComponent<SignalRIdentity>().NetworkID,
+			PlayerId = GetComponentInParent<SignalRIdentity>().NetworkID,
 
 			PrefabName = prefabName,
 			
