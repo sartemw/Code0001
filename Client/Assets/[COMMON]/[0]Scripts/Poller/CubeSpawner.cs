@@ -7,7 +7,7 @@ public class CubeSpawner : MonoBehaviour {
 	ObjectPooler objectPooler;
 
 	void Start () {
-		objectPooler = ObjectPooler.Instance;
+		//objectPooler = ObjectPooler.Instance;
 	}
 
 	private void FixedUpdate()

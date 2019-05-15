@@ -43,11 +43,7 @@ public class SignalRShooting : MonoBehaviour {
 	}
 	#endregion
 
-	void Start()
-	{
-		objectPooler = ObjectPooler.Instance;
-	}
-
+	
 	//Типа старт, запускается при выполеном подключении
 	public void StartShooting () {
 		_signalRClient = GetComponent<SignalRClient>();

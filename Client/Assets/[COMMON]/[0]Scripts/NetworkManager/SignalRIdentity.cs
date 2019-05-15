@@ -30,4 +30,11 @@ public class SignalRIdentity : MonoBehaviour
 		get { return _parentID; }
 		set { _parentID = value; }
 	}
+
+	private int _teamID;
+	public int TeamID
+	{
+		get { return _teamID; }
+		set { _teamID = value; }
+	}
 }

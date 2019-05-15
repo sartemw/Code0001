@@ -13,35 +13,7 @@ public class ObjectPooler : MonoBehaviour {
 
 	public List<Pool> Pools;
 	public Dictionary<string, Queue<GameObject>> PoolDictionary;
-
-	#region Singlton
-	public static ObjectPooler Instance = null;
-	//RunSinglton надо добавить в Start
-	private void RunSinglton()
-	{
-		if (Instance == null)
-		{ // Экземпляр менеджера был найден
-			Instance = this; // Задаем ссылку на экземпляр объекта
-		}
-		else if (Instance == this)
-		{ // Экземпляр объекта уже существует на сцене
-			Destroy(gameObject); // Удаляем объект
-		}
-
-		// Теперь нам нужно указать, чтобы объект не уничтожался
-		// при переходе на другую сцену игры
-		DontDestroyOnLoad(gameObject);
-	}
-	
-	private void Awake()
-	{
-		RunSinglton();
-	}
-
-
-	#endregion
-
-
+		
 	void Start () {
 
 		PlayerStats _playerStats = GetComponentInParent<PlayerStats>();
@@ -75,6 +47,12 @@ public class ObjectPooler : MonoBehaviour {
 				_obj.SetActive(false);
 				_objectPool.Enqueue(_obj);
 				_obj.transform.SetParent(gameObject.transform);
+
+				SignalRIdentity signalRIdentity = new SignalRIdentity
+				{
+					NetworkID = i,
+					ParentID = GetComponentInParent<SignalRIdentity>().NetworkID 
+				};
 			}
 
 			PoolDictionary.Add(_pool.Tag, _objectPool);
