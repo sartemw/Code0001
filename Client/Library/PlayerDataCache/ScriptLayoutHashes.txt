@@ -1,10 +1,9 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/sarte/Desktop/qwe/_trash/Code0001/test.exe
+H:/Code0001/test.exe
 SceneListBegin?
 Assets/[8]Scenes/[0]MainMenu.unity
 SceneListEnd?
-d919ad5ab82471eb62adefed724f2372 Assembly-CSharp.dll:.ObjectPooler
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 4b12dd839b2293f8457cd67cc3610b85 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -53,7 +52,6 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BoundaryController
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CubeSpawner
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -127,7 +125,6 @@ dbfd0e26a78a0b2a53342c718bc7161f Assembly-CSharp.dll:.CameraController
 08d8aae5bde84d28d367cf77eb8af589 Assembly-CSharp.dll:.BulletStats
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CanvasFunctional
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MachineGun
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Cube
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerController
 87614eddc4093dbd56ecd6d0e6fd5281 Assembly-CSharp.dll:.GameHelper
 235fb0596a94523ed54fc8e479199150 Assembly-CSharp.dll:Controller.ApplicationController
@@ -171,3 +168,6 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.RegisteredPlayer
 714f69d364e68b1575929f1b92007a77 Assembly-CSharp.dll:.PlayerStats
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ForcingController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CubeSpawner
+d919ad5ab82471eb62adefed724f2372 Assembly-CSharp.dll:.ObjectPooler
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Cube

@@ -7,7 +7,10 @@ namespace SpaceAdSLibrary
 	public class SyncObjectModel
 	{
 		public string Authority;
+
+		public int PartyId;
 		public int Id;
+
 		public string PrefabName;
 
 		public float X;

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406455654254452}
   - component: {fileID: 114480388758533002}
+  - component: {fileID: 114501649962084178}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -312,6 +313,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 0.25
   shotCooldown: 0
+--- !u!114 &114501649962084178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1571803665430812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb740706e75c6f40adbcdea82913f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pools: []
 --- !u!114 &114509214908758400
 MonoBehaviour:
   m_ObjectHideFlags: 1

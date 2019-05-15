@@ -8,8 +8,12 @@ namespace SpaceAdSLibrary
 	public class BulletModel
 	{
 		public string Authority;
+
+		public int PartyId;
 		public int PlayerId;
 		public int BulletId;
+
+
 		public string PrefabName;
 
 		public float X;

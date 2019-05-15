@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+Скрипт вешать на объект с WeaponController'ом
+Для работы нужен объект с PlayerStats'ом,
+С заполенным полем Bullets[].
+Так же используется BulletStats, для определения числа пулов.
+*/
 public class ObjectPooler : MonoBehaviour {
 
 	public List<Pool> Pools;
@@ -37,6 +44,25 @@ public class ObjectPooler : MonoBehaviour {
 
 	void Start () {
 
+		PlayerStats _playerStats = GetComponentInParent<PlayerStats>();
+
+		for (int i = 0; i < _playerStats.Bullets.Length; i++)
+		{
+			int _size = 0;
+			BulletStats _bulletStats = _playerStats.Bullets[i].GetComponent<BulletStats>();
+
+			if (_bulletStats.Patrons >= 10)
+				_size = 10;
+			else _size = _bulletStats.Patrons;
+
+			Pool _poolObj = new Pool {Size = _size,
+									  Tag = _bulletStats.gameObject.name,
+									  Prefab = _bulletStats.gameObject};
+
+			Pools.Add(_poolObj);
+		}
+
+
 		PoolDictionary = new Dictionary<string, Queue<GameObject>>();
 
 		foreach (Pool _pool in Pools)
@@ -48,6 +74,7 @@ public class ObjectPooler : MonoBehaviour {
 				GameObject _obj = Instantiate(_pool.Prefab);
 				_obj.SetActive(false);
 				_objectPool.Enqueue(_obj);
+				_obj.transform.SetParent(gameObject.transform);
 			}
 
 			PoolDictionary.Add(_pool.Tag, _objectPool);

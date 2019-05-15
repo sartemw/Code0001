@@ -15,7 +15,6 @@ H:\Code0001\Server\SpaceAdSLibrary\bin\Debug\SpaceAdSLibrary.pdb
 H:\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.csproj.CoreCompileInputs.cache
 H:\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.dll
 H:\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.pdb
-H:\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.csprojAssemblyReference.cache
 C:\Users\user\Desktop\random\_trash\Code0001\Server\SpaceAdSLibrary\bin\Debug\SpaceAdSLibrary.dll
 C:\Users\user\Desktop\random\_trash\Code0001\Server\SpaceAdSLibrary\bin\Debug\SpaceAdSLibrary.pdb
 C:\Users\user\Desktop\random\_trash\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.csprojAssemblyReference.cache

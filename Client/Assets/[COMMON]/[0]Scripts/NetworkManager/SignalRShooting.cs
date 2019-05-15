@@ -22,8 +22,10 @@ public class SignalRShooting : MonoBehaviour {
 	private HubConnection _hubConnection = null;
 	private IHubProxy _hubProxy;
 
+	ObjectPooler objectPooler;	
+
 	#region Singlton
-	private void Start()
+	private void Awake()
 	{
 		
 		// Теперь, проверяем существование экземпляра
@@ -40,6 +42,11 @@ public class SignalRShooting : MonoBehaviour {
 		
 	}
 	#endregion
+
+	void Start()
+	{
+		objectPooler = ObjectPooler.Instance;
+	}
 
 	//Типа старт, запускается при выполеном подключении
 	public void StartShooting () {
@@ -89,12 +96,18 @@ public class SignalRShooting : MonoBehaviour {
 		{
 			foreach (var bulletModel in _instantiateBulletPool)
 			{
-				GameObject gameObj = Instantiate(Resources.Load<GameObject>("Bullets/" + bulletModel.PrefabName),
-					new Vector3(bulletModel.X, bulletModel.Y, 0),
-					new Quaternion(0,
-									0,
-									bulletModel.aZ,
-									bulletModel.aQ)) as GameObject;
+
+				GameObject gameObj = 
+				objectPooler.SpawnFromPool(bulletModel.PrefabName, 
+					new Vector3(bulletModel.X, bulletModel.Y, 0), 
+					new Quaternion(0, 0, bulletModel.aZ, bulletModel.aQ));
+
+				//	Instantiate(Resources.Load<GameObject>("Bullets/" + bulletModel.PrefabName),
+				//	new Vector3(bulletModel.X, bulletModel.Y, 0),
+				//new Quaternion(0,
+				//				0,
+				//				bulletModel.aZ,
+				//				bulletModel.aQ)) as GameObject;
 
 				SignalRIdentity signalRIdentety = gameObj.GetComponent<SignalRIdentity>();
 
