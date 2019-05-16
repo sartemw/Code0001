@@ -20,8 +20,12 @@ public class BulletController : MonoBehaviour {
 		set { _syncRotation = value; }
 	}
 
+	private bool _onPlay = false;
+
+
 	Rigidbody2D _rigidbody2D;
 	BulletStats _bulletStats;
+
 	private void Start()
 	{
 		_rigidbody2D = GetComponent<Rigidbody2D>();
@@ -29,7 +33,18 @@ public class BulletController : MonoBehaviour {
 
 		speed = _bulletStats.BulletSpeed*10;
 		damage = _bulletStats.Damage;
-		Destroy(gameObject, _bulletStats.LifeTime);
+
+		Invoke("BulletOff", _bulletStats.LifeTime);
+
+		//выдается ошибка так, как поля еще не обозначены, а OnEnable запускается быстрее Start.
+		//А сам OnEnable нужен потому, что Start работает лишь при 1ом включении
+		_onPlay = true;
+	}
+
+	private void OnEnable()
+	{
+		if (_onPlay == true)
+		Invoke("BulletOff", _bulletStats.LifeTime);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -59,5 +74,10 @@ public class BulletController : MonoBehaviour {
 	private void OnDisable()
 	{
 		SignalRShooting.instance.BulletsInGame.Remove(gameObject);
+	}
+
+	public void BulletOff()
+	{
+		gameObject.SetActive(false);
 	}
 }

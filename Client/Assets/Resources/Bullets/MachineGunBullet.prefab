@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114056256971275102}
   - component: {fileID: 114854338365986038}
   - component: {fileID: 198274347945807034}
+  - component: {fileID: 114151414573711028}
   - component: {fileID: 199070281948350262}
   m_Layer: 0
   m_Name: MachineGunBullet
@@ -145,6 +146,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff5f203da4d028941b38ba9679d990f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114151414573711028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1740561126202760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b068d4d70e0e53f418924b67717387fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114722120893773628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465c196506c45b342bc084376ce1e795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isAuthority: 0
 --- !u!198 &198274347945807034
 ParticleSystem:
   m_ObjectHideFlags: 1

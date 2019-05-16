@@ -22,8 +22,6 @@ public class SignalRShooting : MonoBehaviour {
 	private HubConnection _hubConnection = null;
 	private IHubProxy _hubProxy;
 
-	ObjectPooler objectPooler;	
-
 	#region Singlton
 	private void Awake()
 	{
@@ -92,6 +90,15 @@ public class SignalRShooting : MonoBehaviour {
 		{
 			foreach (var bulletModel in _instantiateBulletPool)
 			{
+				ObjectPooler objectPooler = new ObjectPooler();
+				
+				foreach (var player in _gameHelper.AllPlayers)
+				{
+					if (bulletModel.PlayerId == player.GetComponent<SignalRIdentity>().NetworkID)
+					{
+						objectPooler = player.GetComponentInChildren<ObjectPooler>();
+					}
+				}
 
 				GameObject gameObj = 
 				objectPooler.SpawnFromPool(bulletModel.PrefabName, 
