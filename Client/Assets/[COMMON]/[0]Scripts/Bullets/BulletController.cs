@@ -5,7 +5,7 @@ public class BulletController : MonoBehaviour {
 	[Header("Скорость сети")]
 	int SyncRate = 3;
 
-	int speed, rotation, damage ;
+	int speed, damage ;
 
 	Vector3 _syncPosition;
 	public Vector3 SyncPosition
@@ -25,11 +25,13 @@ public class BulletController : MonoBehaviour {
 
 	Rigidbody2D _rigidbody2D;
 	BulletStats _bulletStats;
+	SignalRShooting _signalRShooting;
 
 	private void Start()
 	{
 		_rigidbody2D = GetComponent<Rigidbody2D>();
 		_bulletStats = GetComponent<BulletStats>();
+		_signalRShooting = SignalRShooting.instance;
 
 		speed = _bulletStats.BulletSpeed*10;
 		damage = _bulletStats.Damage;
@@ -79,5 +81,6 @@ public class BulletController : MonoBehaviour {
 	public void BulletOff()
 	{
 		gameObject.SetActive(false);
+		_signalRShooting.BulletsInGame.Equals(gameObject);
 	}
 }

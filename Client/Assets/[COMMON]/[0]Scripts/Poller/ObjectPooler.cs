@@ -72,7 +72,7 @@ public class ObjectPooler : MonoBehaviour {
 		_objectToSpawn.SetActive(true);
 		_objectToSpawn.transform.position = _position;
 		_objectToSpawn.transform.rotation = _rotation;
-
+		
 		IPooledObject _pooledObject = _objectToSpawn.GetComponent<IPooledObject>();
 
 		if (_pooledObject != null)

@@ -91,7 +91,11 @@ public class SignalRShooting : MonoBehaviour {
 			foreach (var bulletModel in _instantiateBulletPool)
 			{
 				ObjectPooler objectPooler = new ObjectPooler();
-				
+
+				//думаю тут как-то можно оптимизировать с удержанием пула от одного игрока, и если его пуль нету, то тогда переходится на другого
+				//хотя похоже это бред, ведь в один пул не должно попадать две пули от одного человека, ну я так считаю
+				//в любом случае это как-то долго и нужно чтото с этим сделать.
+
 				foreach (var player in _gameHelper.AllPlayers)
 				{
 					if (bulletModel.PlayerId == player.GetComponent<SignalRIdentity>().NetworkID)
@@ -100,14 +104,14 @@ public class SignalRShooting : MonoBehaviour {
 					}
 				}
 
-				GameObject gameObj = 
-				objectPooler.SpawnFromPool(bulletModel.PrefabName, 
-					new Vector3(bulletModel.X, bulletModel.Y, 0), 
+				GameObject gameObj =
+				objectPooler.SpawnFromPool(bulletModel.PrefabName,
+					new Vector3(bulletModel.X, bulletModel.Y, 0),
 					new Quaternion(0, 0, bulletModel.aZ, bulletModel.aQ));
 
 				//	Instantiate(Resources.Load<GameObject>("Bullets/" + bulletModel.PrefabName),
 				//	new Vector3(bulletModel.X, bulletModel.Y, 0),
-				//new Quaternion(0,
+				//  new Quaternion(0,
 				//				0,
 				//				bulletModel.aZ,
 				//				bulletModel.aQ)) as GameObject;
@@ -143,26 +147,32 @@ public class SignalRShooting : MonoBehaviour {
 			{
 				foreach (var bullet in BulletsInGame)
 				{
-					if (bullet.GetComponent<SignalRIdentity>().NetworkID == hitModel.bulletID)
+					int bulletNetworkID = bullet.GetComponent<SignalRIdentity>().NetworkID;
+					int bulletDamage = bullet.GetComponent<BulletStats>().Damage;
+
+					if (bulletNetworkID == hitModel.bulletID)
 					{
 						foreach (var target in _gameHelper.AllPlayers)
 						{
-							if (target.GetComponent<SignalRIdentity>().NetworkID == hitModel.targetID)
-							{
-								target.GetComponent<PlayerStats>().Health -= bullet.GetComponent<BulletStats>().Damage;
+							int targetHealth = target.GetComponent<PlayerStats>().Health;
+							int targetNetworkID = target.GetComponent<SignalRIdentity>().NetworkID;
+							BulletController bulletController = bullet.GetComponent<BulletController>();
 
-								//если мало здоровья то отключаем игрока, надо будет переделать под рестарт чтоли.
-								if (target.GetComponent<PlayerStats>().Health <= 0)
+							if (bulletNetworkID == hitModel.targetID)
+							{
+								targetHealth -= bulletDamage;						
+
+								//если мало здоровья то отключаем игрока, надо будет переделать под рестарт игрока, либо переход его в меню со статистикой.
+								if (targetHealth <= 0)
 								{
 									SyncObjectModel syncObjectModel = new SyncObjectModel();
-									syncObjectModel.Id = target.GetComponent<SignalRIdentity>().NetworkID;
+									syncObjectModel.Id = targetNetworkID;
 									_signalRClient._disconnectedModels.Add(syncObjectModel);
 								}
 
 								if (!bullet.GetComponent<BulletStats>().Perforation)
 								{
-									BulletsInGame.Equals(bullet);
-									Destroy(bullet);
+									bulletController.BulletOff();
 								}
 							}
 						}
