@@ -91,23 +91,23 @@ public class SignalRShooting : MonoBehaviour {
 			foreach (var bulletModel in _instantiateBulletPool)
 			{
 				ObjectPooler objectPooler = new ObjectPooler();
-
+				GameObject gameObj = new GameObject();
 				//думаю тут как-то можно оптимизировать с удержанием пула от одного игрока, и если его пуль нету, то тогда переходится на другого
 				//хотя похоже это бред, ведь в один пул не должно попадать две пули от одного человека, ну я так считаю
 				//в любом случае это как-то долго и нужно чтото с этим сделать.
 
 				foreach (var player in _gameHelper.AllPlayers)
-				{
+				{					
 					if (bulletModel.PlayerId == player.GetComponent<SignalRIdentity>().NetworkID)
 					{
 						objectPooler = player.GetComponentInChildren<ObjectPooler>();
+
+						gameObj =
+								objectPooler.SpawnFromPool(bulletModel.PrefabName,
+								new Vector3(bulletModel.X, bulletModel.Y, 0),
+								new Quaternion(0, 0, bulletModel.aZ, bulletModel.aQ)) as GameObject;
 					}
 				}
-
-				GameObject gameObj =
-				objectPooler.SpawnFromPool(bulletModel.PrefabName,
-					new Vector3(bulletModel.X, bulletModel.Y, 0),
-					new Quaternion(0, 0, bulletModel.aZ, bulletModel.aQ));
 
 				//	Instantiate(Resources.Load<GameObject>("Bullets/" + bulletModel.PrefabName),
 				//	new Vector3(bulletModel.X, bulletModel.Y, 0),
@@ -119,7 +119,7 @@ public class SignalRShooting : MonoBehaviour {
 				SignalRIdentity signalRIdentety = gameObj.GetComponent<SignalRIdentity>();
 
 				BulletsInGame.Add(gameObj);
-
+				
 				signalRIdentety.NetworkID = bulletModel.BulletId;
 				signalRIdentety.ParentID = bulletModel.PlayerId;
 				
