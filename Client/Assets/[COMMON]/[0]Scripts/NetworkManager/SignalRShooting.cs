@@ -109,24 +109,13 @@ public class SignalRShooting : MonoBehaviour {
 					}
 				}
 
+				BulletsInGame.Add(gameObj);
 				//	Instantiate(Resources.Load<GameObject>("Bullets/" + bulletModel.PrefabName),
 				//	new Vector3(bulletModel.X, bulletModel.Y, 0),
 				//  new Quaternion(0,
 				//				0,
 				//				bulletModel.aZ,
-				//				bulletModel.aQ)) as GameObject;
-
-				SignalRIdentity signalRIdentety = gameObj.GetComponent<SignalRIdentity>();
-
-				BulletsInGame.Add(gameObj);
-				
-				signalRIdentety.NetworkID = bulletModel.BulletId;
-				signalRIdentety.ParentID = bulletModel.PlayerId;
-				
-				if (_signalRClient.HubConnection.ConnectionId == bulletModel.Authority)
-				{
-					signalRIdentety.IsAuthority = true;
-				}
+				//				bulletModel.aQ)) as GameObject;								
 			}
 			//объект призван, очищает список			
 			_instantiateBulletPool.Clear();

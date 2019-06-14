@@ -46,7 +46,9 @@ public class ObjectPooler : MonoBehaviour {
 				GameObject _obj = Instantiate(_pool.Prefab);
 				_obj.SetActive(false);
 				_objectPool.Enqueue(_obj);
-				_obj.transform.SetParent(gameObject.transform);
+				_obj.transform.SetParent(GameObject.Find("BulletsContainer").transform);
+
+
 
 				SignalRIdentity signalRIdentity = new SignalRIdentity
 				{
