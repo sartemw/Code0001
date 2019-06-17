@@ -17,7 +17,7 @@ public class ObjectPooler : MonoBehaviour {
 	void Start () {
 
 		PlayerStats _playerStats = GetComponentInParent<PlayerStats>();
-
+		GameObject _bulletsContainer = GameObject.Find("BulletsContainer");
 		for (int i = 0; i < _playerStats.Bullets.Length; i++)
 		{
 			int _size = 0;
@@ -40,16 +40,14 @@ public class ObjectPooler : MonoBehaviour {
 		foreach (Pool _pool in Pools)
 		{
 			Queue<GameObject> _objectPool = new Queue<GameObject>();
-
+			
 			for (int i = 0; i < _pool.Size; i++)
 			{
 				GameObject _obj = Instantiate(_pool.Prefab);
 				_obj.SetActive(false);
 				_objectPool.Enqueue(_obj);
-				_obj.transform.SetParent(GameObject.Find("BulletsContainer").transform);
-
-
-
+				_obj.transform.SetParent(_bulletsContainer.transform);
+				
 				SignalRIdentity signalRIdentity = new SignalRIdentity
 				{
 					NetworkID = i,
@@ -83,7 +81,6 @@ public class ObjectPooler : MonoBehaviour {
 		}
 
 		PoolDictionary[_tag].Enqueue(_objectToSpawn);
-
 		return _objectToSpawn;
 	}
 }

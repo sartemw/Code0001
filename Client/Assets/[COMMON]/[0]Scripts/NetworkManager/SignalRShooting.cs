@@ -2,7 +2,6 @@
 using Microsoft.AspNet.SignalR.Client.Hubs;
 using Newtonsoft.Json;
 using SpaceAdSLibrary;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -91,7 +90,7 @@ public class SignalRShooting : MonoBehaviour {
 			foreach (var bulletModel in _instantiateBulletPool)
 			{
 				ObjectPooler objectPooler = new ObjectPooler();
-				GameObject gameObj = new GameObject();
+				GameObject _gameObj = new GameObject();
 				//думаю тут как-то можно оптимизировать с удержанием пула от одного игрока, и если его пуль нету, то тогда переходится на другого
 				//хотя похоже это бред, ведь в один пул не должно попадать две пули от одного человека, ну я так считаю
 				//в любом случае это как-то долго и нужно чтото с этим сделать.
@@ -102,14 +101,15 @@ public class SignalRShooting : MonoBehaviour {
 					{
 						objectPooler = player.GetComponentInChildren<ObjectPooler>();
 
-						gameObj =
+						_gameObj =
 								objectPooler.SpawnFromPool(bulletModel.PrefabName,
 								new Vector3(bulletModel.X, bulletModel.Y, 0),
 								new Quaternion(0, 0, bulletModel.aZ, bulletModel.aQ)) as GameObject;
+
+						BulletsInGame.Add(_gameObj);
 					}
 				}
 
-				BulletsInGame.Add(gameObj);
 				//	Instantiate(Resources.Load<GameObject>("Bullets/" + bulletModel.PrefabName),
 				//	new Vector3(bulletModel.X, bulletModel.Y, 0),
 				//  new Quaternion(0,

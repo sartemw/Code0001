@@ -80,7 +80,7 @@ public class BulletController : MonoBehaviour {
 
 	public void BulletOff()
 	{
-		gameObject.SetActive(false);
-		_signalRShooting.BulletsInGame.Equals(gameObject);
+		this.gameObject.SetActive(false);
+		_signalRShooting.BulletsInGame.Equals(this.gameObject);
 	}
 }

@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNet.SignalR.Client;
 using SpaceAdSLibrary;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
