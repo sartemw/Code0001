@@ -72,12 +72,7 @@ public class BulletController : MonoBehaviour {
 	{
 		_rigidbody2D.AddForce(transform.right * speed);
 	}
-
-	//private void OnDisable()
-	//{
-	//	_signalRShooting.BulletsInGame.Remove(gameObject);
-	//}
-
+	
 	public void BulletOff()
 	{
 		this.gameObject.SetActive(false);

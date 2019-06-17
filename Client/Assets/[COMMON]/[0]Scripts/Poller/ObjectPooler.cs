@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -14,7 +13,8 @@ public class ObjectPooler : MonoBehaviour {
 	public List<Pool> Pools;
 	public Dictionary<string, Queue<GameObject>> PoolDictionary;
 		
-	void Start () {
+	void Start ()
+	{
 
 		PlayerStats _playerStats = GetComponentInParent<PlayerStats>();
 		GameObject _bulletsContainer = GameObject.Find("BulletsContainer");
@@ -33,8 +33,7 @@ public class ObjectPooler : MonoBehaviour {
 
 			Pools.Add(_poolObj);
 		}
-
-
+		
 		PoolDictionary = new Dictionary<string, Queue<GameObject>>();
 
 		foreach (Pool _pool in Pools)

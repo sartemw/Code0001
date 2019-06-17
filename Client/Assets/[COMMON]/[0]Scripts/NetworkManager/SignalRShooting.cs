@@ -87,10 +87,10 @@ public class SignalRShooting : MonoBehaviour {
 	{
 		if (_instantiateBulletPool.Count > 0)
 		{
+			ObjectPooler _objectPooler = new ObjectPooler();
+
 			foreach (var bulletModel in _instantiateBulletPool)
-			{
-				ObjectPooler objectPooler = new ObjectPooler();
-				GameObject _gameObj = new GameObject();
+			{				
 				//думаю тут как-то можно оптимизировать с удержанием пула от одного игрока, и если его пуль нету, то тогда переходится на другого
 				//хотя похоже это бред, ведь в один пул не должно попадать две пули от одного человека, ну я так считаю
 				//в любом случае это как-то долго и нужно чтото с этим сделать.
@@ -99,10 +99,10 @@ public class SignalRShooting : MonoBehaviour {
 				{					
 					if (bulletModel.PlayerId == player.GetComponent<SignalRIdentity>().NetworkID)
 					{
-						objectPooler = player.GetComponentInChildren<ObjectPooler>();
+						_objectPooler = player.GetComponentInChildren<ObjectPooler>();
 
-						_gameObj =
-								objectPooler.SpawnFromPool(bulletModel.PrefabName,
+						GameObject _gameObj =
+								_objectPooler.SpawnFromPool(bulletModel.PrefabName,
 								new Vector3(bulletModel.X, bulletModel.Y, 0),
 								new Quaternion(0, 0, bulletModel.aZ, bulletModel.aQ)) as GameObject;
 

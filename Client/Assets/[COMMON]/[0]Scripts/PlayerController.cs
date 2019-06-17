@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
@@ -31,8 +29,7 @@ public class PlayerController : MonoBehaviour {
 		get { return rotation; }
 		set { rotation = value; }
 	}
-
-
+	
 	Vector3 _syncPosition;
 	public Vector3 SyncPosition
 	{
@@ -103,13 +100,8 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		rotZ += rotation;
-
 		transform.rotation = Quaternion.Euler(inclineX, 0, -rotZ);
 
-		
-
 		_rigidbody2D.AddForce(transform.right* 60 * translation);
-		
-		//transform.Translate(translation, 0, 0);	
 	}
 }
