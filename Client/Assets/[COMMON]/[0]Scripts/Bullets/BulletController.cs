@@ -26,12 +26,14 @@ public class BulletController : MonoBehaviour {
 	Rigidbody2D _rigidbody2D;
 	BulletStats _bulletStats;
 	SignalRShooting _signalRShooting;
+	SignalRIdentity _signalRIdentity;
 
 	private void Start()
 	{
 		_rigidbody2D = GetComponent<Rigidbody2D>();
 		_bulletStats = GetComponent<BulletStats>();
 		_signalRShooting = SignalRShooting.instance;
+		_signalRIdentity = GetComponent<SignalRIdentity>();
 
 		speed = _bulletStats.BulletSpeed*10;
 		damage = _bulletStats.Damage;
@@ -57,10 +59,10 @@ public class BulletController : MonoBehaviour {
 		{
 			HitModel hitModel = new HitModel()
 			{
-				bulletID = GetComponent<SignalRIdentity>().NetworkID,
+				bulletID = _signalRIdentity.NetworkID,
 				targetID = collision.GetComponent<SignalRIdentity>().NetworkID,
-				playerID = GetComponent<SignalRIdentity>().ParentID,
-				damage = GetComponent<BulletStats>().Damage
+				playerID = _signalRIdentity.ParentID,
+				damage = _bulletStats.Damage
 
 			};
 

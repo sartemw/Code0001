@@ -18,6 +18,8 @@ public class ObjectPooler : MonoBehaviour {
 
 		PlayerStats _playerStats = GetComponentInParent<PlayerStats>();
 		GameObject _bulletsContainer = GameObject.Find("BulletsContainer");
+		SignalRIdentity _signalRIdentity = GetComponentInParent<SignalRIdentity>();
+
 		for (int i = 0; i < _playerStats.Bullets.Length; i++)
 		{
 			int _size = 0;
@@ -50,8 +52,12 @@ public class ObjectPooler : MonoBehaviour {
 				SignalRIdentity signalRIdentity = new SignalRIdentity
 				{
 					NetworkID = i,
-					ParentID = GetComponentInParent<SignalRIdentity>().NetworkID 
+					ParentID = _signalRIdentity.NetworkID,
+					TeamID = _signalRIdentity.TeamID					
 				};
+
+				if (_signalRIdentity.IsAuthority)
+					signalRIdentity.IsAuthority = true;
 			}
 
 			PoolDictionary.Add(_pool.Tag, _objectPool);

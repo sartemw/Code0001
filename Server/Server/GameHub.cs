@@ -46,7 +46,7 @@ namespace Server
 		//Регистрируем объект (капсулы)
 		public void RegisterObjectBullet (BulletModel obj)
 		{
-			obj.Authority = Context.ConnectionId;
+			//obj.Authority = Context.ConnectionId;
 
 			_broadcaster.RegisterModelBullet(obj);
 		}

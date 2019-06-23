@@ -28,7 +28,7 @@ public class WeaponController : MonoBehaviour {
 	private Quaternion bulletRotation;
 	private string bulletName;
 	private IHubProxy hubProxy;
-	private int bulletID = 0;
+	//private int bulletID = 0;
 
 	private int clip;
 	private List<GameObject> shotedBullets = new List<GameObject>();
@@ -105,9 +105,9 @@ void RotateWeapon()
 		//это отправится на сервер и вышлется всем игрокам
 		BulletModel bulletModel = new BulletModel()
 		{
-			//тут же добавить команду teamID
-			PlayerId = GetComponentInParent<SignalRIdentity>().NetworkID,
-			BulletId = bulletID,
+			////тут же добавить команду teamID
+			//PlayerId = GetComponentInParent<SignalRIdentity>().NetworkID,
+			//BulletId = bulletID,
 
 			PrefabName = prefabName,
 			
@@ -118,8 +118,8 @@ void RotateWeapon()
 			aQ = rot.w
 		};
 
-		if (bulletID >= 10) bulletID = 0;
-		else bulletID++;
+		//if (bulletID >= 10) bulletID = 0;
+		//else bulletID++;
 
 		hubProxy.Invoke("RegisterObjectBullet", bulletModel);
 	}

@@ -152,9 +152,9 @@ namespace Server
 		public void RegisterModelBullet(BulletModel bulletmodel)
 		{
 			////даем уникальный ID
-			bulletmodel.BulletId = _registerBullets.Count();
+			//bulletmodel.BulletId = _registerBullets.Count();
 
-			_registerBullets.Enqueue(bulletmodel);
+			//_registerBullets.Enqueue(bulletmodel);
 
 			_hubContext.Clients.All.instantiateBullet(bulletmodel);
 		}
