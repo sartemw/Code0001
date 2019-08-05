@@ -23,7 +23,6 @@ C:\Users\user\Desktop\random\_trash\Code0001\Server\SpaceAdSLibrary\obj\Debug\Sp
 C:\Users\user\Desktop\random\_trash\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.pdb
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\SpaceAdSLibrary\bin\Debug\SpaceAdSLibrary.dll
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\SpaceAdSLibrary\bin\Debug\SpaceAdSLibrary.pdb
-C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.csprojAssemblyReference.cache
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.csproj.CoreCompileInputs.cache
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.dll
 C:\Users\sarte\Desktop\qwe\_trash\Code0001\Server\SpaceAdSLibrary\obj\Debug\SpaceAdSLibrary.pdb
